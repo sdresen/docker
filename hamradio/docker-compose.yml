@@ -1,0 +1,26 @@
+---
+services:
+  hamradio:
+    image: lipanski/docker-static-website:latest
+    container_name: hamradio
+    restart: always
+    ports:
+      - 3742:3000
+    volumes:
+      - /home/sdresen/docker/hamradio:/home/static
+      - /home/sdresen/docker/hamradio/httpd.conf:/home/static/httpd.conf:ro
+    deploy:
+      mode: global
+      restart_policy:
+        condition: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.hamradio.entrypoints=websecure"
+      - "traefik.http.routers.hamradio.rule=Host(`hamradio.lan.dresen.tech`)"
+      - "traefik.http.routers.hamradio.tls=true"
+      - "traefik.http.routers.hamradio.tls.certresolver=production"
+    networks:
+      - docker_net
+networks:
+    docker_net:
+      external: true

@@ -1,0 +1,70 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/latest/configs/settings
+
+title: DresenNet Homepage
+theme: dark
+color: zinc
+
+background:
+  # image: https://images.unsplash.com/photo-1502790671504-542ad42d5189?auto=format&fit=crop&w=2560&q=80
+  # image: https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTF8fHxlbnwwfHx8fHw%3D
+  # image: https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg
+  image: https://images.unsplash.com/photo-1524334228333-0f6db392f8a1?q%3D80%26w%3D1000%26auto%3Dformat%26fit%3Dcrop%26ixlib%3Drb-4.0.3%26ixid%3DM3wxMjA3fDB8MHxzZWFyY2h8M3x8ZGFyayUyMHNwYWNlfGVufDB8fDB8fHww&imgrefurl=https://unsplash.com/s/photos/dark-space&h=667&w=1000&tbnid=SOfG2ImXRqFACM&q=darkspace+hd+wallpaper&tbnh=99&tbnw=149&usg=AI4_-kRgSnvl6g_NqLx2h7yj_U7spCjUSg&vet=1&docid=q5wcnwCQho4wHM&sa=X&ved=2ahUKEwimt9Gtw-2DAxUuv4kEHcoPCL8Q9QF6BAgKEAQ
+  # blur: sm # sm, "", md, xl... see https://tailwindcss.com/docs/backdrop-blur
+  saturate: 100 # 0, 50, 100... see https://tailwindcss.com/docs/backdrop-saturate
+  brightness: 75 # 0, 50, 75... see https://tailwindcss.com/docs/backdrop-brightness
+  opacity: 100 # 0-100
+
+useEqualHeights: true
+
+layout:
+  Quick Access:
+    header: true
+    style: row
+    columns: 4
+
+  Apps:
+    header: true
+    style: row
+    columns: 4
+
+  Finance:
+    header: true
+    style: row
+    columns: 4
+
+  Homepage:
+    header: true
+    style: row
+    columns: 4
+
+  IoT:
+    header: true
+    style: row
+    columns: 4
+
+  Media:
+    header: true
+    style: row
+    columns: 4
+
+  Networking:
+    header: true
+    style: row
+    columns: 4
+
+  Remote Access:
+    header: true
+    style: row
+    columns: 4
+
+  Servers:
+    header: true
+    style: row
+    columns: 4
+
+  Storage:
+    header: true
+    style: row
+    columns: 4

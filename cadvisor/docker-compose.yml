@@ -1,0 +1,27 @@
+services:
+  cadvisor:
+      image: gcr.io/cadvisor/cadvisor:v0.49.1
+      container_name: cadvisor
+      ports:
+        - "8282:8080"
+      volumes:
+        - "/:/rootfs:ro"
+        - "/var/run:/var/run:ro"
+        - "/sys:/sys:ro"
+        - "/var/lib/docker/:/var/lib/docker:ro"
+        - "/dev/disk/:/dev/disk:ro"
+      deploy:
+        mode: global
+        restart_policy:
+          condition: unless-stopped
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.cadvisor.entrypoints=websecure"
+        - "traefik.http.routers.cadvisor.rule=Host(`cadvisor-docker.lan.dresen.tech`)"
+        - "traefik.http.routers.cadvisor.tls=true"
+        - "traefik.http.routers.cadvisor.tls.certresolver=production"
+      networks:
+        - docker_net
+networks:
+    docker_net:
+      external: true

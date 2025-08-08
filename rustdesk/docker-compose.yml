@@ -1,0 +1,41 @@
+---
+services:
+  rustdesk:
+    image: lscr.io/linuxserver/rustdesk:latest
+    container_name: rustdesk
+    security_opt:
+      - seccomp:unconfined #optional
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/New_York
+      - CUSTOM_USER=$CUSTOM_USER
+      - PASSWORD=$PASSWORD
+    volumes:
+      - /home/sdresen/docker/rustdesk/config:/config
+    ports:
+      - 3300:3000
+      - 3301:3001
+    deploy:
+      mode: global
+      restart_policy:
+        condition: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.rustdesk.entrypoints=websecure"
+
+      # rustdesk.lan.dresen.tech
+      - "traefik.http.routers.rustdesk.rule=Host(`rustdesk.lan.dresen.tech`)"
+      - "traefik.http.routers.rustdesk.tls=true"
+      - "traefik.http.routers.rustdesk.tls.certresolver=production"
+
+      # rustdesk.rootzero.us
+      - "traefik.http.routers.guaccloudflare.rule=Host(`rustdesk.rootzero.us`)"
+      - "traefik.http.routers.guaccloudflare.tls=true"
+      - "traefik.http.routers.guaccloudflare.tls.certresolver=production"
+
+    networks:
+      - docker_net
+networks:
+    docker_net:
+      external: true

@@ -1,0 +1,10 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/latest/configs/docker/
+
+#homepage:
+#   host: 10.1.1.41
+#   port: 3000
+
+#homepage:
+#   socket: /var/run/docker.sock

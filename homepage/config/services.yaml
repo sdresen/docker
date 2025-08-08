@@ -1,0 +1,311 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/latest/configs/services
+# icons found here https://github.com/walkxcode/dashboard-icons
+
+- Quick Access:
+    - Home Assistant:
+        icon: home-assistant.svg
+        href:  https://hassio.lan.dresen.tech/
+        description: automation
+    - Nginx Proxy Manager:
+        icon: nginx-proxy-manager.svg
+        href:  https://argus.lan.dresen.tech/
+        description: Argus
+    - Nginx Proxy Manager:
+        icon: nginx-proxy-manager.svg
+        href:  https://npm-docker.lan.dresen.tech/
+        description: Docker
+    - Nginx Proxy Manager:
+        icon: nginx-proxy-manager.svg
+        href:  https://npm-mcp.lan.dresen.tech/
+        description: MCP
+    - pfSense:
+        icon: pfsense.svg
+        href:  https://pfsense.lan.dresen.tech:10443/
+        description: pfSense
+    - Portainer:
+        icon: portainer.svg
+        href:  https://portainer.lan.dresen.tech/
+        description: portainer
+    - Proxmox:
+        icon: proxmox.svg
+        href:  https://proxmox1.lan.dresen.tech:8006
+        description: Proxmox1
+    - Synology:
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/synology.png
+        href:  https://maxell.lan.dresen.tech:5001/
+        description: Maxell NAS
+    - Synology:
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/synology.png
+        href:  https://zeus.lan.dresen.tech:5001/
+        description: Zeus NAS
+    - Technitium DNS:
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/technitium.png
+        href:  https://dnsprimary.lan.dresen.tech
+        description: TechDNS1
+    - TrueNAS:
+        icon: truenas.svg
+        href:  https://truenas1.lan.dresen.tech
+        description: truenas1
+    - Whoogle:
+        icon: google.svg
+        href:  https://whoogle.lan.dresen.tech
+        description: search
+    - UniFi:
+        icon: unifi.svg
+        href:  "{{HOMEPAGE_VAR_UNIFI_NETWORK_URL}}"
+        description: network
+
+- Apps:
+    - Broadlink Control:
+        icon: https://nwzimg.wezhan.net/contents/sitefiles3606/18030899/images/5430245.png
+        href:  https://broadlink.lan.dresen.tech/
+        description: control hub
+    - Home Assistant:
+        icon: home-assistant.svg
+        href:  https://hassio.lan.dresen.tech/
+        description: home
+    - Uptime Kuma:
+        icon: uptime-kuma.svg
+        href:  "{{HOMEPAGE_VAR_UPTIME_KUMA_URL}}"
+        description: internal monitor
+        widget:
+            type: uptimekuma
+            url:  "{{HOMEPAGE_VAR_UPTIME_KUMA_URL}}"
+            slug: default
+- Finance:
+    - Ally:
+        icon: https://asset.brandfetch.io/idI-Y5B6sm/idpzg8yQyj.jpeg?updated=1667598101976
+        href:  https://www.ally.com
+    - Chase:
+        icon: https://pbs.twimg.com/profile_images/748885874516094980/ywt_aKRx_400x400.jpg
+        href:  https://chase.com
+        description: bank
+    - Fidelity:
+        icon: https://cdn.jsdelivr.net/gh/PapirusDevelopmentTeam/papirus_icons/src/apps_fidelity_investments.svg
+        href:  https://fidelity.com
+    - Fidelity Rewards:
+        icon: https://cdn.jsdelivr.net/gh/PapirusDevelopmentTeam/papirus_icons/src/apps_fidelity_investments.svg
+        href:  https://www.fidelityrewards.com
+    - Quickbooks:
+        icon: https://cdn.worldvectorlogo.com/logos/quickbooks-2.svg
+        href:  https://quickbooks.intuit.com
+    - RBC Canada:
+        icon: https://www.rbcbank.com/dvl/v1.0/assets/images/logos/rbc-logo-shield.svg
+        href:  https://www.rbcroyalbank.com
+    - RBC USA:
+        icon: https://www.rbcbank.com/dvl/v1.0/assets/images/logos/rbc-logo-shield.svg
+        href:  https://www.rbcbank.com
+    - Zoho:
+        icon: https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/ZOHO_logo_2023.svg/440px-ZOHO_logo_2023.svg.png
+        href:  https://invoice.zoho.com
+
+- Homepage:
+    - Icons (PNG):
+        icon: homepage.png
+        href: https://github.com/walkxcode/dashboard-icons/tree/main/png
+        description: icons
+    - Icons (SVG):
+        icon: homepage.png
+        href: https://github.com/walkxcode/dashboard-icons/tree/main/svg
+        description: icons
+    - Widgets:
+        icon: homepage.png
+        href: https://gethomepage.dev/v0.8.2/widgets/
+        description: widgets
+
+- IoT:
+    - Shelly:
+        icon: shelly.png
+        href: http://10.30.1.41
+        description: Proxmox1 Plug
+    - Shelly:
+        icon: shelly.png
+        href: http://10.30.1.38
+        description: Proxmox2 Plug
+    - Shelly:
+        icon: shelly.png
+        href: http://10.30.1.37
+        description: Proxmox3 Plug
+    - Shelly:
+        icon: shelly.png
+        href: http://10.30.1.40
+        description: Maxell Plug
+    - Shelly:
+        icon: shelly.png
+        href: http://10.30.1.41
+        description: Zeus Plug
+
+- Media:
+    - AudioControl:
+        icon:  https://media.licdn.com/dms/image/C560BAQFSFi_JDBka5w/company-logo_200_200/0/1644199992047/audiocontrol_logo?e=2147483647&v=beta&t=3t0RnsRnHw7M3f7uMIufWRzZSE6Ly_JpftX5oKlYn5E
+        href:  http://10.1.1.50
+        description: AudioControl
+    - Deluge:
+        icon:  https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/deluge.svg
+        href:  https://deluge.lan.dresen.tech/
+        description: Deluge
+    - Jellyfin:
+        icon:  https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/jellyfin.svg
+        href:  https://jellyfin.lan.dresen.tech
+        description: Deluge
+    - Lidarr:
+        icon:  https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/lidarr.svg
+        href:  https://lidarr.lan.dresen.tech
+        description: Lidarr
+    - NZBGeek:
+        icon:  https://rss.nzbgeek.info/geekloading.gif
+        href:  https://nzbgeek.info
+        description: NZBGeek
+    - Overseerr:
+        icon:  https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/overseerr.svg
+        href:  https://overseerr.lan.dresen.tech
+        description: Overseerr
+    - Plex:
+        icon: plex.svg
+        href:  "{{HOMEPAGE_VAR_PLEX_URL}}"
+        description: media server
+        widget:
+            type: plex
+            url:  "{{HOMEPAGE_VAR_PLEX_WIDGET_URL}}"
+            key:  "{{HOMEPAGE_VAR_PLEX_API_TOKEN}}"
+    - Photoprism:
+        icon:  https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/photoprism.svg
+        href:  https://photoprism.lan.dresen.tech
+        description: Photoprism
+    - Prowlarr:
+        icon:  https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/prowlarr.svg
+        href:  https://prowlarr.lan.dresen.tech
+        description: Prowlarr
+    - Radarr:
+        icon:  https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/radarr-light.png
+        href:  https://radarr.lan.dresen.tech
+        description: Radarr
+    - Sabnzbdvpn:
+        icon:  https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/sabnzbd-alt.svg
+        href:  https://sabnzbdvpn.lan.dresen.tech
+        description: Sabnzbdvpn
+    - Sonarr:
+        icon:  https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/sonarr.svg
+        href:  https://sonarr.lan.dresen.tech
+        description: Sonarr
+    - Tautulli:
+        icon: tautulli.svg
+        href:  "{{HOMEPAGE_VAR_TAUTULLI_URL}}"
+        description: plex stats
+        widget:
+            type: tautulli
+            url:  "{{HOMEPAGE_VAR_TAUTULLI_URL}}"
+            key:  "{{HOMEPAGE_VAR_TAUTULLI_API_KEY}}"
+
+- Networking:
+    - DNS:
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/technitium.png
+        href:  https://dnsprimary.lan.dresen.tech
+        description: TechDNS1
+    - DNS:
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/technitium.png
+        href:  https://dnssecondary.lan.dresen.tech
+        description: TechDNS2
+    - DNS:
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/technitium.png
+        href:  https://dnstertiary.lan.dresen.tech
+        description: TechDNS3
+    - UniFi:
+        icon: unifi.svg
+        href:  "{{HOMEPAGE_VAR_UNIFI_NETWORK_URL}}"
+        description: network
+        widget:
+            type: unifi
+            url:  "{{HOMEPAGE_VAR_UNIFI_WIDGET_URL}}"
+            username:  "{{HOMEPAGE_VAR_UNIFI_NETWORK_USERNAME}}"
+            password:  "{{HOMEPAGE_VAR_UNIFI_NETWORK_PASSWORD}}"
+
+- Remote Access:
+    - IPMI:
+        icon: https://upload.wikimedia.org/wikipedia/commons/1/1d/Super_Micro_Computer_Logo.svg
+        href:  https://proxmox1-impi.lan.dresen.tech
+        description: Proxmox1
+    - IPMI:
+        icon: https://upload.wikimedia.org/wikipedia/commons/1/1d/Super_Micro_Computer_Logo.svg
+        href:  https://proxmox2-ipmi.lan.dresen.tech
+        description: Proxmox2
+    - IPMI:
+        icon: https://upload.wikimedia.org/wikipedia/commons/1/1d/Super_Micro_Computer_Logo.svg
+        href:  https://hal-idrac.lan.dresen.tech
+        description: Proxmox3
+    - PiKVM:
+        icon: https://avatars.githubusercontent.com/u/41749659?s=200&v=4
+        href:  https://pikvm.lan.dresen.tech/
+        description: remote kvm
+    - Tripp Lite:
+        icon: https://upload.wikimedia.org/wikipedia/commons/f/f9/Tripp_Lite_logo.svg
+        href:  https://kvm.lan.dresen.tech/
+        description: KVM
+    - Tripp Lite:
+        icon: https://upload.wikimedia.org/wikipedia/commons/f/f9/Tripp_Lite_logo.svg
+        href:  http://pdu.lan.dresen.tech/
+        description: PDU
+
+- Servers:
+    - Portainer:
+        icon: portainer.svg
+        href:  https://portainer.lan.dresen.tech
+        description: Portainer
+    - Proxmox:
+        icon: proxmox.svg
+        href:  "{{HOMEPAGE_VAR_PROXMOX0_URL}}"
+        description: Proxmox0
+        widget:
+            type: proxmox
+            url:  "{{HOMEPAGE_VAR_PROXMOX0_URL}}"
+            username:  "{{HOMEPAGE_VAR_PROXMOX0_USER}}"
+            password:  "{{HOMEPAGE_VAR_PROXMOX0_API_KEY}}"
+            node: proxmox0
+    - Proxmox:
+        icon: proxmox.svg
+        href:  https://proxmox1.lan.dresen.tech:8006
+        description: Proxmox1
+        widget:
+            type: proxmox
+            url:  https://proxmox1.lan.dresen.tech:8006
+            username:  "{{HOMEPAGE_VAR_PROXMOX1_USER}}"
+            password:  "{{HOMEPAGE_VAR_PROXMOX1_API_KEY}}"
+            node: proxmox1
+    - Proxmox:
+        icon: proxmox.svg
+        href:  "{{HOMEPAGE_VAR_PROXMOX2_URL}}"
+        description: Proxmox2
+        widget:
+            type: proxmox
+            url:  "{{HOMEPAGE_VAR_PROXMOX2_URL}}"
+            username:  "{{HOMEPAGE_VAR_PROXMOX2_USER}}"
+            password:  "{{HOMEPAGE_VAR_PROXMOX2_API_KEY}}"
+            node: proxmox2
+    - Proxmox:
+        icon: proxmox.svg
+        href:  https://pbs.lan.dresen.tech:8007/
+        description: Proxmox Backup Server
+
+- Storage:
+    - Nextcloud:
+        icon: nextcloud.svg
+        href:  https://nextcloud.lan.dresen.tech
+        description: storage
+    - Synology:
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/synology.png
+        href:  https://maxell.lan.dresen.tech:5001/
+        description: Maxell NAS
+    - Synology:
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/synology.png
+        href:  https://zeus.lan.dresen.tech:5001/
+        description: Zeus NAS
+    - TrueNAS:
+        icon: truenas.svg
+        href:  https://truenas1.lan.dresen.tech
+        description: truenas1
+        widget:
+            type: truenas
+            url:  https://truenas1.lan.dresen.tech
+            key:  "{{HOMEPAGE_VAR_TRUENAS1_API_KEY}}"

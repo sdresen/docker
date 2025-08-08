@@ -1,0 +1,28 @@
+---
+services:
+  opengist:
+    image: ghcr.io/thomiceli/opengist:latest
+    container_name: opengist
+    restart: unless-stopped
+    ports:
+      - "6157:6157" # HTTP port
+      - "2222:2222" # SSH port, can be removed if you don't use SSH
+    volumes:
+      - "/home/sdresen/docker/opengist/data:/opengist"
+    deploy:
+      mode: global
+      restart_policy:
+        condition: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.opengist.entrypoints=websecure"
+      - "traefik.http.routers.opengist.rule=Host(`opengist.lan.dresen.tech`)"
+      - "traefik.http.routers.opengist.tls=true"
+      - "traefik.http.routers.opengist.tls.certresolver=production"
+      - "traefik.http.services.opengist.loadBalancer.server.port=6157"
+    networks:
+      - docker_net
+networks:
+    docker_net:
+      external: true
+

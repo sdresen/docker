@@ -1,0 +1,22 @@
+---
+services:
+  techtools:
+    image: corentinth/it-tools:latest
+    container_name: techtools
+    ports:
+      - 8181:80
+    deploy:
+      mode: global
+      restart_policy:
+        condition: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.techtools.entrypoints=websecure"
+      - "traefik.http.routers.techtools.rule=Host(`techtools.lan.dresen.tech`)"
+      - "traefik.http.routers.techtools.tls=true"
+      - "traefik.http.routers.techtools.tls.certresolver=production"
+    networks:
+      - docker_net
+networks:
+    docker_net:
+      external: true
