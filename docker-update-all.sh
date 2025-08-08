@@ -36,10 +36,10 @@ cd /home/sdresen/docker/rustdesk
 cd /home/sdresen/docker/authentik
 ./authentik-update-from-docker.sh; \
 
-# Start pfElk last since it takes the
-# longest to start
-cd /home/sdresen/docker/pfelk
-./pfelk-update-from-docker.sh; \
+# No point in restarting pfElk since
+# it doesn't auto-update
+#cd /home/sdresen/docker/pfelk
+#./pfelk-update-from-docker.sh; \
 
 cd /home/sdresen/docker
 
