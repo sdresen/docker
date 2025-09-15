@@ -68,6 +68,8 @@ services:
       retries: 120
     networks:
       - docker_net
+    labels:
+      - "com.centurylinklabs.watchtower.enable=false"
   es01:
     depends_on:
       setup:
@@ -118,6 +120,8 @@ services:
         condition: unless-stopped
     networks:
       - docker_net
+    labels:
+      - "com.centurylinklabs.watchtower.enable=false"
 
   es02:
     depends_on:
@@ -165,6 +169,8 @@ services:
         condition: unless-stopped
     networks:
       - docker_net
+    labels:
+      - "com.centurylinklabs.watchtower.enable=false"
 
   es03:
     depends_on:
@@ -212,6 +218,8 @@ services:
         condition: unless-stopped
     networks:
       - docker_net
+    labels:
+      - "com.centurylinklabs.watchtower.enable=false"
 
   kibana:
     depends_on:
@@ -254,6 +262,7 @@ services:
       - "traefik.http.routers.kibana.rule=Host(`pfelk.lan.dresen.tech`)"
       - "traefik.http.routers.kibana.tls=true"
       - "traefik.http.routers.kibana.tls.certresolver=production"
+      - "com.centurylinklabs.watchtower.enable=false"
     networks:
       - docker_net
 
@@ -283,6 +292,8 @@ services:
         condition: unless-stopped
     networks:
       - docker_net
+    labels:
+      - "com.centurylinklabs.watchtower.enable=false"
 
 volumes:
   certs:

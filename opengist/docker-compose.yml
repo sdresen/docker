@@ -20,6 +20,7 @@ services:
       - "traefik.http.routers.opengist.tls=true"
       - "traefik.http.routers.opengist.tls.certresolver=production"
       - "traefik.http.services.opengist.loadBalancer.server.port=6157"
+      - "com.centurylinklabs.watchtower.enable=true"
     networks:
       - docker_net
 networks:

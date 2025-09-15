@@ -19,6 +19,8 @@ services:
     restart: unless-stopped
     networks:
       - docker_net
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
 networks:
     docker_net:
       external: true

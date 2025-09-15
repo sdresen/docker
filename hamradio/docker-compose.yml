@@ -19,6 +19,7 @@ services:
       - "traefik.http.routers.hamradio.rule=Host(`hamradio.lan.dresen.tech`)"
       - "traefik.http.routers.hamradio.tls=true"
       - "traefik.http.routers.hamradio.tls.certresolver=production"
+      - "com.centurylinklabs.watchtower.enable=true"
     networks:
       - docker_net
 networks:

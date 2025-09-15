@@ -15,6 +15,7 @@ services:
       - "traefik.http.routers.techtools.rule=Host(`techtools.lan.dresen.tech`)"
       - "traefik.http.routers.techtools.tls=true"
       - "traefik.http.routers.techtools.tls.certresolver=production"
+      - "com.centurylinklabs.watchtower.enable=true"
     networks:
       - docker_net
 networks:

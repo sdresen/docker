@@ -21,6 +21,7 @@ services:
       - "traefik.http.routers.pinchflat.rule=Host(`pinchflat.lan.dresen.tech`)"
       - "traefik.http.routers.pinchflat.tls=true"
       - "traefik.http.routers.pinchflat.tls.certresolver=production"
+      - "com.centurylinklabs.watchtower.enable=true"
     networks:
       - docker_net
 networks:

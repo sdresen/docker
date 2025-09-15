@@ -20,6 +20,7 @@ services:
       - "traefik.http.routers.whoogle.rule=Host(`whoogle.lan.dresen.tech`)"
       - "traefik.http.routers.whoogle.tls=true"
       - "traefik.http.routers.whoogle.tls.certresolver=production"
+      - "com.centurylinklabs.watchtower.enable=true"
     networks:
       - docker_net
 networks:

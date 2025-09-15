@@ -21,6 +21,8 @@ services:
       - .env
     networks:
       - docker_net
+    labels:
+      - "com.centurylinklabs.watchtower.enable=false"
   redis:
     image: docker.io/library/redis:alpine
     container_name: authentik-redis
@@ -36,6 +38,8 @@ services:
       - ./redis:/data
     networks:
       - docker_net
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
   server:
     image: ${AUTHENTIK_IMAGE:-ghcr.io/goauthentik/server}:${AUTHENTIK_TAG:-2025.6.2}
     container_name: authentik-server
@@ -67,6 +71,7 @@ services:
       - "traefik.http.routers.authentik.rule=Host(`authentik.lan.dresen.tech`)"
       - "traefik.http.routers.authentik.tls=true"
       - "traefik.http.routers.authentik.tls.certresolver=production"
+      - "com.centurylinklabs.watchtower.enable=true"
     networks:
       - docker_net
   worker:
@@ -102,6 +107,8 @@ services:
         condition: service_healthy
     networks:
       - docker_net
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
 
 volumes:
   database:

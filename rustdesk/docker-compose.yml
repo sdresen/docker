@@ -34,6 +34,9 @@ services:
       - "traefik.http.routers.guaccloudflare.tls=true"
       - "traefik.http.routers.guaccloudflare.tls.certresolver=production"
 
+      # Watchtower
+      - "com.centurylinklabs.watchtower.enable=true"
+
     networks:
       - docker_net
 networks:

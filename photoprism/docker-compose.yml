@@ -108,6 +108,7 @@ services:
       - "traefik.http.routers.photoprism.rule=Host(`photoprism.lan.dresen.tech`)"
       - "traefik.http.routers.photoprism.tls=true"
       - "traefik.http.routers.photoprism.tls.certresolver=production"
+      - "com.centurylinklabs.watchtower.enable=true"
     networks:
       - docker_net
 
@@ -135,22 +136,9 @@ services:
       MARIADB_ROOT_PASSWORD: "Only4me2know!"
     networks:
       - docker_net
+    labels:
+      - "com.centurylinklabs.watchtower.enable=false"
 
-  ## Watchtower upgrades services automatically (optional)
-  ## see https://docs.photoprism.app/getting-started/updates/#watchtower
-  ## activate via "COMPOSE_PROFILES=update docker compose up -d"
-  watchtower:
-    restart: unless-stopped
-    image: containrrr/watchtower
-    profiles: ["update"]
-    environment:
-      WATCHTOWER_CLEANUP: "true"
-      WATCHTOWER_POLL_INTERVAL: 7200 # checks for updates every two hours
-    volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock"
-      - "~/.docker/config.json:/config.json" # optional, for authentication if you have a Docker Hub account
-    networks:
-      - docker_net
 networks:
     docker_net:
       external: true

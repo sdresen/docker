@@ -16,6 +16,7 @@ services:
       - "traefik.http.routers.drawio.rule=Host(`drawio.lan.dresen.tech`)"
       - "traefik.http.routers.drawio.tls=true"
       - "traefik.http.routers.drawio.tls.certresolver=production"
+      - "com.centurylinklabs.watchtower.enable=true"
     networks:
       - docker_net
 networks:

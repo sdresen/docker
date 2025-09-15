@@ -21,6 +21,7 @@ services:
       - "traefik.http.routers.homepage.rule=Host(`homepage.lan.dresen.tech`)"
       - "traefik.http.routers.homepage.tls=true"
       - "traefik.http.routers.homepage.tls.certresolver=production"
+      - "com.centurylinklabs.watchtower.enable=true"
     networks:
       - docker_net
 networks:

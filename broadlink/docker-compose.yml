@@ -18,6 +18,7 @@ services:
       - "traefik.http.routers.broadlink.rule=Host(`broadlink.lan.dresen.tech`)"
       - "traefik.http.routers.broadlink.tls=true"
       - "traefik.http.routers.broadlink.tls.certresolver=production"
+      - "com.centurylinklabs.watchtower.enable=true"
     networks:
       - docker_net
 networks:
