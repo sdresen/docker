@@ -10,7 +10,7 @@ services:
       - WATCHTOWER_NO_STARTUP_MESSAGE=true  # Disables startup message when container starts
       - WATCHTOWER_LABEL_ENABLE=true  # Will only monitor containers with label set to true
       - WATCHTOWER_NOTIFICATIONS=shoutrrr
-      - WATCHTOWER_NOTIFICATION_URL=$SMTP_URL $TELEGRAM_URL  # Can also add: $PUSHOVER_URL
+      - WATCHTOWER_NOTIFICATION_URL=$TELEGRAM_URL  # Can also add: $SMTP_URL $PUSHOVER_URL
       - WATCHTOWER_NOTIFY-email-subject=Watchtower Update Notification
       - WATCHTOWER_NOTIFY-email-body-template={{ .Summary }}
     # command: --interval 21600 --cleanup --label-enable --include-stopped  # Check for udpates every six hours

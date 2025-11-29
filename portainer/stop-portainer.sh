@@ -1,3 +1,5 @@
 #!/bin/sh
 
-sudo docker compose -f /home/sdresen/docker/portainer/docker-compose.yml down
+APP_FOLDER="/home/sdresen/docker/portainer"
+
+sudo docker compose -f $APP_FOLDER/docker-compose.yml down
