@@ -14,7 +14,7 @@ services:
       - WATCHTOWER_NOTIFY-email-subject=Watchtower Update Notification
       - WATCHTOWER_NOTIFY-email-body-template={{ .Summary }}
     # command: --interval 21600 --cleanup --label-enable --include-stopped  # Check for udpates every six hours
-    command: --schedule "0 3 * * *" --cleanup --label-enable --include-stopped  # Check for updates at 3am
+    command: --schedule "0 0 3 * * *" --cleanup --label-enable --include-stopped  # Check for updates at 3am
     deploy:
       mode: global
       restart_policy:
