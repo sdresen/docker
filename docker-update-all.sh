@@ -1,31 +1,16 @@
 #!/usr/bin/env bash
 
-cd /home/sdresen/docker/broadlink
-./broadlink-update-from-docker.sh; \
-
 cd /home/sdresen/docker/cadvisor
 ./cadvisor-update-from-docker.sh; \
 
 cd /home/sdresen/docker/cloudflaretunnel
 ./cloudflaretunnel-update-from-docker.sh; \
 
-cd /home/sdresen/docker/drawio
-./drawio-update-from-docker.sh; \
-
-cd /home/sdresen/docker/photoprism
-./photoprism-update-from-docker.sh; \
-
 cd /home/sdresen/docker/portainer
 ./portainer-update-from-docker.sh; \
 
-cd /home/sdresen/docker/opengist
-./opengist-update-from-docker.sh; \
-
-cd /home/sdresen/docker/rustdesk
-./rustdesk-update-from-docker.sh; \
-
-cd /home/sdresen/docker/authentik
-./authentik-update-from-docker.sh; \
+cd /home/sdresen/docker/traefik
+./traefik-update-from-docker.sh; \
 
 cd /home/sdresen/docker/watchtower
 ./watchtower-update-from-docker.sh; \
