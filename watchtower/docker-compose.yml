@@ -13,6 +13,10 @@ services:
       - WATCHTOWER_NOTIFICATION_URL=$TELEGRAM_URL  # Can also add: $SMTP_URL $PUSHOVER_URL
       - WATCHTOWER_NOTIFY-email-subject=Watchtower Update Notification
       - WATCHTOWER_NOTIFY-email-body-template={{ .Summary }}
+      - WATCHTOWER_NOTIFICATIONS_LEVEL=error
+      - WATCHTOWER_NOTIFICATION_REPORT_LEVEL=error
+      - WATCHTOWER_CLEANUP=true
+      - WATCHTOWER_POLL_INTERVAL=86400 # Once a day
     # command: --interval 21600 --cleanup --label-enable --include-stopped  # Check for udpates every six hours
     command: --schedule "0 0 3 * * *" --cleanup --label-enable --include-stopped  # Check for updates at 3am
     deploy:

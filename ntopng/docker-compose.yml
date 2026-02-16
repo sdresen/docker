@@ -1,0 +1,67 @@
+services:
+  ntop-redis:
+    image: docker.io/redis:alpine
+    container_name: ntop-redis
+    restart: unless-stopped
+    networks:
+      - docker_net
+    labels:
+      # Opt-out: Databases are risky to auto-update
+      - "com.centurylinklabs.watchtower.enable=false"
+
+  netflow2ng:
+    image: docker.io/synfinatic/netflow2ng:latest
+    container_name: netflow2ng
+    restart: unless-stopped
+    ports:
+      - "2055:2055/udp"
+      - "3000:3000"
+    command: -a 0.0.0.0:2055 -z tcp://0.0.0.0:5556 -f tlv
+    dns:
+      - 10.1.1.53
+      - 10.1.1.35
+      - 10.1.1.253
+    dns_search:
+      - lan.dresen.tech
+      - iot.dresen.tech
+      - dmz.dresen.tech
+      - beehive.dresen.tech
+      - home.dresen.tech
+    depends_on:
+      - ntop-redis
+    networks:
+      - docker_net
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+
+  ntopng:
+    image: docker.io/ntop/ntopng:latest
+    container_name: ntopng
+    restart: unless-stopped
+    network_mode: "service:netflow2ng"
+    volumes:
+      - /home/sdresen/docker/ntopng/data:/var/lib/ntopng
+    command: >
+      -i tcp://127.0.0.1:5556
+      -r ntop-redis:6379
+      -w 3000
+      --community
+      -n 1  # Overrides the default "Mode 0" and ensures traffic is actively resolved against desired DNS
+      --dns-resolver 10.1.1.1
+      --enable-dns-resolution
+      --local-networks "10.1.0.0/22,10.10.0.0/23,10.20.1.0/24,10.30.1.0/24,10.40.1.0/24,10.50.1.0/24,10.98.1.0/24,10.99.1.0/24,192.168.80.0/24"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.ntop.rule=Host(`ntop.lan.dresen.tech`)"
+      - "traefik.http.routers.ntop.entrypoints=websecure"
+      - "traefik.http.routers.ntop.tls.certresolver=cloudflare"
+      - "traefik.http.services.ntop.loadbalancer.server.port=3000"
+      - "com.centurylinklabs.watchtower.enable=true"
+    depends_on:
+      - netflow2ng
+      - ntop-redis
+
+networks:
+  docker_net:
+    external: true
+

@@ -1,0 +1,49 @@
+services:
+  smokeping:
+    image: docker.io/linuxserver/smokeping:latest
+    container_name: smokeping
+    hostname: smokeping.lan.dresen.tech
+
+    # Port mapping
+    ports:
+      - "8634:80"
+
+    # Capabilities for fping
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+
+    # Rootless ping fix (Equivalent to the sysctl kernel tweak)
+    sysctls:
+      - net.ipv4.ping_group_range=0 2000000
+
+    # Environment settings
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/New_York
+
+    # Volumes
+    volumes:
+      - /home/sdresen/docker/smokeping/config:/config
+      - /home/sdresen/docker/smokeping/data:/data
+
+    # Network
+    networks:
+      - docker_net
+
+    # Traefik labels
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.smokeping.entrypoints=websecure"
+      - "traefik.http.routers.smokeping.rule=Host(`smokeping.lan.dresen.tech`)"
+      - "traefik.http.routers.smokeping.tls=true"
+      - "traefik.http.routers.smokeping.tls.certresolver=production"
+      - "traefik.http.services.smokeping.loadbalancer.server.port=80"
+      - "com.centurylinklabs.watchtower.enable=true"
+
+    restart: unless-stopped
+
+networks:
+  docker_net:
+    external: true

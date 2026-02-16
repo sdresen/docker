@@ -1,0 +1,45 @@
+services:
+  speedtest-tracker:
+    image: lscr.io/linuxserver/speedtest-tracker:latest
+    container_name: speedtest-tracker
+
+    # Port mapping
+    ports:
+      - "8923:80"
+      - "18443:443"
+
+    # Environment settings
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/New_York
+      - DISPLAY_TIMEZONE=America/New_York
+      - APP_KEY=base64:pZF4lz5v2xFyzud/wNiJ7Ikv35532V9b8iYaeUZPLXQ=
+      - APP_URL=https://speedtest.lan.dresen.tech
+      - DB_CONNECTION=sqlite
+      - SPEEDTEST_SCHEDULE=0 * * * *
+
+    # Volumes
+    volumes:
+      - /home/sdresen/docker/speedtest/data:/config
+      - /home/sdresen/docker/speedtest/keys:/config/keys
+
+    # Network
+    networks:
+      - docker_net
+
+    # Traefik labels
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.speedtest.entrypoints=websecure"
+      - "traefik.http.routers.speedtest.rule=Host(`speedtest.lan.dresen.tech`)"
+      - "traefik.http.routers.speedtest.tls=true"
+      - "traefik.http.routers.speedtest.tls.certresolver=production"
+      - "traefik.http.services.speedtest.loadbalancer.server.port=80"
+      - "com.centurylinklabs.watchtower.enable=true"
+
+    restart: unless-stopped
+
+networks:
+  docker_net:
+    external: true

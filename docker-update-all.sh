@@ -3,9 +3,6 @@
 cd /home/sdresen/docker/cadvisor
 ./cadvisor-update-from-docker.sh; \
 
-cd /home/sdresen/docker/cloudflaretunnel
-./cloudflaretunnel-update-from-docker.sh; \
-
 cd /home/sdresen/docker/portainer
 ./portainer-update-from-docker.sh; \
 
@@ -14,6 +11,9 @@ cd /home/sdresen/docker/traefik
 
 cd /home/sdresen/docker/watchtower
 ./watchtower-update-from-docker.sh; \
+
+cd /home/sdresen/docker/speedtest 
+./container-update-from-docker.sh; \
 
 # No point in restarting pfElk since
 # it doesn't auto-update
